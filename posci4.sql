@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2023 at 06:35 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Jun 05, 2023 at 08:13 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -205,7 +206,8 @@ INSERT INTO `tb_item` (`id`, `barcode`, `nama_item`, `id_kategori`, `id_unit`, `
 (5, 'AAA005', 'Zara | Kemeja | Putih', 5, 2, 1, 80000, 9, 'gambar.jpg', '2023-05-27 22:55:20', '2023-05-27 23:12:36', '0000-00-00 00:00:00'),
 (6, 'AAA006', 'Supreme | Topi | Merah', 3, 2, 3, 500000, 15, 'gambar.jpg', '2023-05-27 23:08:29', '2023-05-27 23:08:47', '0000-00-00 00:00:00'),
 (7, 'AAA007', 'Supreme | Tas | Hitam', 7, 2, 1, 600000, 19, 'gambar.jpg', '2023-05-27 23:09:13', '2023-05-27 23:11:08', '0000-00-00 00:00:00'),
-(8, 'AAA008', 'The Executive | Celana Panjang | Hitam', 2, 2, 3, 125000, 49, 'gambar.jpg', '2023-05-27 23:12:18', '2023-05-27 23:12:36', '0000-00-00 00:00:00');
+(8, 'AAA008', 'The Executive | Celana Panjang | Hitam', 2, 2, 3, 125000, 49, 'gambar.jpg', '2023-05-27 23:12:18', '2023-05-27 23:12:36', '0000-00-00 00:00:00'),
+(9, 'AAA009', 'Semen', 9, 2, 4, 49000, 18, '1685269552_ed546763341b79510715.jpg', '2023-05-28 17:25:52', '2023-05-28 17:28:51', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -233,7 +235,8 @@ INSERT INTO `tb_kategori` (`id`, `nama_kategori`, `created_at`, `updated_at`, `d
 (5, 'Kemeja', '2022-05-02 21:51:21', '2023-05-27 22:30:46', '0000-00-00 00:00:00'),
 (6, 'Jaket', '2022-05-02 22:06:02', '2023-05-27 22:32:38', '0000-00-00 00:00:00'),
 (7, 'Tas', '2023-05-27 22:30:54', '2023-05-27 22:32:50', '0000-00-00 00:00:00'),
-(8, 'Jas', '2023-05-27 22:52:14', '2023-05-27 22:52:14', '0000-00-00 00:00:00');
+(8, 'Jas', '2023-05-27 22:52:14', '2023-05-27 22:52:14', '0000-00-00 00:00:00'),
+(9, 'Tembok', '2023-05-28 17:24:49', '2023-05-28 17:24:49', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -257,7 +260,8 @@ CREATE TABLE `tb_pelanggan` (
 --
 
 INSERT INTO `tb_pelanggan` (`id`, `nama_pelanggan`, `jenkel`, `telp_pelanggan`, `alamat_pelanggan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Umum', '', '-', '-', '2021-10-12 00:00:00', '2022-05-02 21:52:31', '0000-00-00 00:00:00');
+(1, 'Umum', '', '-', '-', '2021-10-12 00:00:00', '2022-05-02 21:52:31', '0000-00-00 00:00:00'),
+(15, 'Aldy', 'L', '085729383938', 'Palsigunung', '2023-05-28 17:24:19', '2023-05-28 17:24:19', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -283,7 +287,8 @@ CREATE TABLE `tb_pemasok` (
 INSERT INTO `tb_pemasok` (`id`, `nama_pemasok`, `telp_pemasok`, `alamat_pemasok`, `keterangan`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Pt. Jaya Abadi', '98732783', 'Jakarta', '', '2021-10-19 20:44:45', '2022-01-21 18:54:53', '0000-00-00 00:00:00'),
 (2, 'Cv Sejahtera', '98732783', 'Bandung', '', '2021-10-19 21:17:05', '2022-01-21 18:55:08', '0000-00-00 00:00:00'),
-(3, 'Toko Mulia', '09298', 'Bandung', '', '2021-10-20 21:24:37', '2022-05-02 22:05:27', '0000-00-00 00:00:00');
+(3, 'Toko Mulia', '09298', 'Bandung', '', '2021-10-20 21:24:37', '2022-05-02 22:05:27', '0000-00-00 00:00:00'),
+(4, 'PT Tiga Roda', '085719383938', 'Semarang, Indonesia', 'Semen', '2023-05-28 17:23:31', '2023-05-28 17:23:31', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -303,7 +308,7 @@ CREATE TABLE `tb_pengaturan` (
 --
 
 INSERT INTO `tb_pengaturan` (`id`, `nama_toko`, `no_telp`, `alamat`) VALUES
-(0, 'Fiztick Claps', '081295018034', 'Jl. Babakan Wadana No.39, Cipamokolan, Rancasari, Kota Bandung');
+(0, 'Matrial Gen Z', '085719383938', 'Jl Akses UI, Tugu, Cimanggis, Depok, 16451');
 
 -- --------------------------------------------------------
 
@@ -339,7 +344,8 @@ INSERT INTO `tb_penjualan` (`id`, `invoice`, `id_pelanggan`, `total_harga`, `dis
 (6, 'INV2305270004', 1, 600000, 0, 600000, 1000000, 400000, '', '2023-05-27', 1, '::1', '2023-05-27 23:11:08', '2023-05-27 23:11:08', '0000-00-00 00:00:00'),
 (7, 'INV2305270005', 1, 300000, 0, 300000, 300000, 0, '', '2023-05-27', 1, '::1', '2023-05-27 23:12:36', '2023-05-27 23:12:36', '0000-00-00 00:00:00'),
 (8, 'INV2305270006', 1, 225000, 0, 225000, 250000, 25000, '', '2023-05-27', 1, '::1', '2023-05-27 23:13:03', '2023-05-27 23:13:03', '0000-00-00 00:00:00'),
-(9, 'INV2305270007', 1, 100000000, 0, 100000000, 100000000, 0, '', '2023-04-12', 1, '::1', '2023-04-12 23:17:39', '2023-04-12 23:17:39', '0000-00-00 00:00:00');
+(9, 'INV2305270007', 1, 100000000, 0, 100000000, 100000000, 0, '', '2023-04-12', 1, '::1', '2023-04-12 23:17:39', '2023-04-12 23:17:39', '0000-00-00 00:00:00'),
+(10, 'INV2305280001', 1, 98000, 10, 88200, 90000, 1800, '', '2023-05-28', 2, '::1', '2023-05-28 17:28:51', '2023-05-28 17:28:51', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -414,7 +420,8 @@ INSERT INTO `tb_transaksi` (`id_transaksi`, `id_penjualan`, `id_item`, `harga_it
 (6, 7, 2, 95000, 1, 0, 95000, '::1', '2023-05-27 23:12:36', '2023-05-27 23:12:36', '0000-00-00 00:00:00'),
 (7, 7, 8, 125000, 1, 0, 125000, '::1', '2023-05-27 23:12:36', '2023-05-27 23:12:36', '0000-00-00 00:00:00'),
 (8, 8, 3, 75000, 3, 0, 225000, '::1', '2023-05-27 23:13:03', '2023-05-27 23:13:03', '0000-00-00 00:00:00'),
-(9, 9, 4, 100000000, 1, 0, 100000000, '::1', '2023-05-27 23:17:39', '2023-05-27 23:17:39', '0000-00-00 00:00:00');
+(9, 9, 4, 100000000, 1, 0, 100000000, '::1', '2023-05-27 23:17:39', '2023-05-27 23:17:39', '0000-00-00 00:00:00'),
+(10, 10, 9, 49000, 2, 0, 98000, '::1', '2023-05-28 17:28:51', '2023-05-28 17:28:51', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -435,7 +442,8 @@ CREATE TABLE `tb_unit` (
 --
 
 INSERT INTO `tb_unit` (`id`, `nama_unit`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Pcs', '2021-10-12 18:31:25', '2021-10-12 18:31:25', '0000-00-00 00:00:00');
+(2, 'Pcs', '2021-10-12 18:31:25', '2021-10-12 18:31:25', '0000-00-00 00:00:00'),
+(7, 'Biji', '2023-05-28 17:25:04', '2023-05-28 17:25:04', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -566,31 +574,31 @@ ALTER TABLE `tb_bulan_tahun`
 -- AUTO_INCREMENT for table `tb_item`
 --
 ALTER TABLE `tb_item`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_pemasok`
 --
 ALTER TABLE `tb_pemasok`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_penjualan`
 --
 ALTER TABLE `tb_penjualan`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_roles`
@@ -608,13 +616,13 @@ ALTER TABLE `tb_stok`
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id_transaksi` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_transaksi` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_unit`
 --
 ALTER TABLE `tb_unit`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
